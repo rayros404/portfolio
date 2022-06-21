@@ -1,0 +1,33 @@
+#menu {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  height: 1rem;
+  width: 1.75rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-color: inherit;
+  border: none;
+}
+
+#topLine {
+  background-color: white;
+  height: 3px;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+#bottomLine {
+  background-color: white;
+  height: 3px;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+@media screen and (max-width: 425px) {
+  #menu {
+    display: flex;
+  }
+}
