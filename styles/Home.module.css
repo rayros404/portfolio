@@ -1,4 +1,59 @@
 #home {
   background-color: #111111;
-  height: 100vh;
+  padding: 32px 100px;
+}
+#internship {
+  color: white;
+  padding: 32px 32px;
+
+}
+#internshipTitle {
+  color: white;
+  font-weight: 700;
+  font-size: 3rem;
+}
+#internshipSubtitle {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #7c9195;
+  margin-left: 1rem;
+}
+#internshipContent {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: black;
+  padding: 2rem 0 2rem 0;
+  margin-top: 1rem;
+  border: solid 0.5px #596264;
+  border-radius: 0.5rem;
+}
+#internshipText {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  width: 45%;
+}
+#bruinshackLink {
+  text-align: center;
+  font-size: 1.25rem;
+  text-decoration: none;
+  width: 200px;
+  color: black;
+  background-color: white;
+  padding: 0.75rem;
+  margin-top: 1.5rem;
+  border: solid 0.5px black;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+#internshipImage {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+#bruinshackLink:hover {
+  color: white;
+  background-color: black;
+  border: solid 0.5px white;
 }
