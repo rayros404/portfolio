@@ -1,0 +1,23 @@
+.projectCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 256px;
+  width: 256px;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgb(0 0 0 / 60%);
+  /* border: 1px black solid; */
+  border-radius: 0.5rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.3s;
+}
+
+.projectCard:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  border: 2px white solid;
+}

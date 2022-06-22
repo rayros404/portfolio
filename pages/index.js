@@ -1,12 +1,12 @@
-import Navbar from "../components/Navbar/Navbar"
 import styles from "../styles/Home.module.css"
+import ProjectCard from "../components/ProjectCard"
 import Image from "next/image"
 
 const Home = () => {
   return (
     <div id={styles.home}>
       <section id={styles.internship}>
-      <span id={styles.internshipTitle}>Internship</span>
+      <span id={styles.internshipTitle} className={styles.sectionTitle}>Internship</span>
       <span id={styles.internshipSubtitle}>BruinShack</span>
         <div id={styles.internshipContent}>
           <div id={styles.internshipText}>
@@ -34,6 +34,17 @@ const Home = () => {
             />
           </div>
         </div>
+      </section>
+      <section id={styles.projects}>
+        <div id={styles.projectsTitle} className={styles.sectionTitle}>Projects</div>
+        <div id={styles.projectsContent}>
+          <ProjectCard/>
+          <ProjectCard/>
+          <ProjectCard/>
+          <ProjectCard/>
+          <ProjectCard/>
+        </div>
+
       </section>
     </div>
   )

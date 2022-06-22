@@ -4,10 +4,9 @@
 }
 #internship {
   color: white;
-  padding: 32px 32px;
 
 }
-#internshipTitle {
+.sectionTitle {
   color: white;
   font-weight: 700;
   font-size: 3rem;
@@ -52,8 +51,24 @@
   overflow: hidden;
 }
 
+#projects {
+  margin-top: 2rem;
+}
+#projectsContent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
 #bruinshackLink:hover {
   color: white;
   background-color: black;
   border: solid 0.5px white;
+}
+
+@media screen and (max-width: 768px) {
+  #home {
+    padding: 32px 32px;
+  }
 }
