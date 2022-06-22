@@ -1,6 +1,7 @@
 import styles from "../styles/Home.module.css"
 import ProjectCard from "../components/ProjectCard"
 import Image from "next/image"
+import Link from "next/link"
 
 const Home = () => {
   return (
@@ -13,6 +14,16 @@ const Home = () => {
           <div id={styles.job}>
             Frontend Developer
           </div>
+          <div id={styles.contentBtns}>
+          <Link
+            href="/"
+          >
+            <a
+              id={styles.work}
+            >
+              View My Work
+            </a>
+          </Link>
           <a 
             id={styles.resume}
             href="/resume.pdf"
@@ -20,6 +31,8 @@ const Home = () => {
           >
             Resume
           </a>
+          </div>
+          
         </div>
         <div id={styles.aboutHeadshot}>
           <Image 
