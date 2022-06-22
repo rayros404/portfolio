@@ -5,6 +5,33 @@ import Image from "next/image"
 const Home = () => {
   return (
     <div id={styles.home}>
+      <section id={styles.about}>
+        <div id={styles.aboutContent}>
+          <div id={styles.name}>
+            Ray Ros
+          </div>
+          <div id={styles.job}>
+            Frontend Developer
+          </div>
+          <a 
+            id={styles.resume}
+            href="/resume.pdf"
+            download
+          >
+            Resume
+          </a>
+        </div>
+        <div id={styles.aboutHeadshot}>
+          <Image 
+            src="/portfolioprofile.png"
+            height={256}
+            width={215}
+            layout="fill"
+            objectFit="contain"
+            alt="profile"
+          />
+        </div>
+      </section>
       <section id={styles.internship}>
       <span id={styles.internshipTitle} className={styles.sectionTitle}>Internship</span>
       <span id={styles.internshipSubtitle}>BruinShack</span>

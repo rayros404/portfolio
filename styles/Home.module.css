@@ -1,6 +1,44 @@
 #home {
   background-color: #111111;
-  padding: 32px 100px;
+  padding: 0 100px;
+}
+#about {
+  display: flex;
+  height: calc(100vh - 64px);
+  justify-content: space-around;
+  align-items: center;
+}
+#aboutContent {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+#name {
+  font-size: 6rem;
+}
+#job {
+  font-size: 4rem;
+  color: #7c9195;
+}
+#resume {
+  text-align: center;
+  font-size: 2rem;
+  text-decoration: none;
+  width: 150px;
+  color: black;
+  background-image: linear-gradient(0deg, #fab12a, #f7d74e);
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: solid 0.5px black;
+  border-radius: 0.5rem;
+  transition: 0.7s;
+}
+#aboutHeadshot {
+  position: relative;
+  border-radius: 50%;
+  height: 400px;
+  width: 400px;
+  background-image: linear-gradient(0deg, #fab12a, #f7d74e);
 }
 #internship {
   color: white;
@@ -61,6 +99,12 @@
   margin-top: 1rem;
 }
 
+#resume:hover {
+  color: #f7d74e;
+  background-color: black;
+  border: solid 0.5px #f7d74e;
+  background-image: none;
+}
 #bruinshackLink:hover {
   color: white;
   background-color: black;
