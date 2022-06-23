@@ -18,11 +18,12 @@ const Projects = () => {
         id={projectsStyles.projectsContent}
         className={styles.sectionContent}  
       >
+        {/* <ProjectCard/>
         <ProjectCard/>
         <ProjectCard/>
         <ProjectCard/>
-        <ProjectCard/>
-        <ProjectCard/>
+        <ProjectCard/> */}
+        Coming soon
       </div>
     </section> 
   )
