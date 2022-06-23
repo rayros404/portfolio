@@ -5,6 +5,7 @@ import Link from "next/link"
 import ContactLink from "../components/Home/ContactLink"
 import Hero from "../components/Home/Hero"
 import Internship from "../components/Home/Internship"
+import Projects from "../components/Home/Projects"
 import PrimaryButton from "../components/Home/PrimaryButton"
 
 
@@ -13,20 +14,8 @@ const Home = () => {
     <div id={styles.home}>
       <Hero />
       <Internship />
-      {/* <section id="projects">
-        <div id={styles.projectsTitle} className={styles.sectionTitle}>Projects</div>
-        <div 
-          id={styles.projectsContent}
-          className={styles.sectionContent}  
-        >
-          <ProjectCard/>
-          <ProjectCard/>
-          <ProjectCard/>
-          <ProjectCard/>
-          <ProjectCard/>
-        </div>
-      </section>
-      <section id="contact">
+      <Projects />
+      {/* <section id="contact" className={styles.section}>
         <div
           id={styles.contactTitle}
           className={styles.sectionTitle}

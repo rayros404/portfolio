@@ -28,13 +28,6 @@
   margin: 0;
   line-height: 3.5rem;
 }
-#projectsContent {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
 #contactContent {
   display: flex;
   flex-direction: column;
