@@ -28,18 +28,6 @@
   margin: 0;
   line-height: 3.5rem;
 }
-#contactContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-#links {
-  display: flex;
-  width: 50%;
-  justify-content: space-around;
-  margin-top: 1rem;
-}
 
 @media screen and (max-width: 1000px) {
   .sectionContent {
