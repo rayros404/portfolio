@@ -1,52 +1,6 @@
 #home {
   padding: 0 100px;
 }
-#hero {
-  display: flex;
-  height: calc(100vh - 64px);
-  justify-content: space-around;
-  align-items: center;
-}
-#heroContent {
-  color: white;
-  display: flex;
-  flex-direction: column;
-}
-#name {
-  font-size: 6rem;
-}
-#job {
-  font-size: 4rem;
-  color: #7c9195;
-}
-#contentBtns {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-#resume {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  text-decoration: none;
-  width: 150px;
-  height: 75px;
-  color: black;
-  background-image: linear-gradient(0deg, #fab12a, #f7d74e);
-  border: solid 0.5px black;
-  border-radius: 0.5rem;
-  transition: 0.7s;
-}
-#heroHeadshot {
-  position: relative;
-  border-radius: 50%;
-  height: 400px;
-  width: 400px;
-  background-image: linear-gradient(0deg, #fab12a, #f7d74e);
-  border: solid 5px black;
-}
 .sectionTitle {
   color: white;
   font-weight: 700;
@@ -120,6 +74,6 @@
 
 @media screen and (max-width: 768px) {
   #home {
-    padding: 32px 32px;
+    padding: 0 32px;
   }
 }

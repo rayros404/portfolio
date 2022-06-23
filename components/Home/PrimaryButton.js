@@ -6,6 +6,7 @@ const PrimaryButton = (props) => {
       href={props.href}
       target={props.target}  
       rel={props.rel}
+      download={props.download}
     >
       {props.name}
     </a>

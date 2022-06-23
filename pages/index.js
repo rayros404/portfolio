@@ -2,48 +2,17 @@ import styles from "../styles/Home/Home.module.css"
 import ProjectCard from "../components/Home/ProjectCard"
 import Image from "next/image"
 import Link from "next/link"
-import PrimaryButton from "../components/Home/PrimaryButton"
 import ContactLink from "../components/Home/ContactLink"
+import Hero from "../components/Home/Hero"
+
+import PrimaryButton from "../components/Home/PrimaryButton"
+
 
 const Home = () => {
   return (
     <div id={styles.home}>
-      <section id={styles.hero}>
-        <div id={styles.heroContent}>
-          <div id={styles.name}>
-            Ray Ros
-          </div>
-          <div id={styles.job}>
-            Frontend Developer
-          </div>
-          <div id={styles.contentBtns}>
-          <Link href="/#internship" passHref>
-            <PrimaryButton
-              name="View My Work"
-            />
-          </Link>
-          <a 
-            id={styles.resume}
-            href="/Home/resume.pdf"
-            download
-          >
-            Resume
-          </a>
-          </div>
-          
-        </div>
-        <div id={styles.heroHeadshot}>
-          <Image 
-            src="/Home/portfolioprofile.png"
-            height={256}
-            width={215}
-            layout="fill"
-            objectFit="contain"
-            alt="profile"
-          />
-        </div>
-      </section>
-      <section id="internship">
+      <Hero />
+      {/* <section id="internship">
       <span id={styles.internshipTitle} className={styles.sectionTitle}>Internship</span>
       <span id={styles.internshipSubtitle}>BruinShack</span>
         <div 
@@ -73,8 +42,8 @@ const Home = () => {
             />
           </div>
         </div>
-      </section>
-      <section id="projects">
+      </section> */}
+      {/* <section id="projects">
         <div id={styles.projectsTitle} className={styles.sectionTitle}>Projects</div>
         <div 
           id={styles.projectsContent}
@@ -123,7 +92,7 @@ const Home = () => {
         </div>
         
         
-      </section>
+      </section> */}
     </div>
   )
 }
