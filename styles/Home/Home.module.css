@@ -1,14 +1,13 @@
 #home {
-  background-color: #111111;
   padding: 0 100px;
 }
-#about {
+#hero {
   display: flex;
   height: calc(100vh - 64px);
   justify-content: space-around;
   align-items: center;
 }
-#aboutContent {
+#heroContent {
   color: white;
   display: flex;
   flex-direction: column;
@@ -55,21 +54,33 @@
   border-radius: 0.5rem;
   transition: 0.7s;
 }
-#aboutHeadshot {
+#heroHeadshot {
   position: relative;
   border-radius: 50%;
   height: 400px;
   width: 400px;
   background-image: linear-gradient(0deg, #fab12a, #f7d74e);
-}
-#internship {
-  color: white;
+  border: solid 5px black;
 
 }
 .sectionTitle {
   color: white;
   font-weight: 700;
   font-size: 3rem;
+  margin-top: 2rem;
+
+}
+.sectionText {
+  color: white;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+.sectionContent {
+  background-color: black;
+  padding: 2rem 3rem;
+  margin-top: 1rem;
+  border: solid 0.5px #596264;
+  border-radius: 0.5rem;
 }
 #internshipSubtitle {
   font-weight: 700;
@@ -79,18 +90,11 @@
 }
 #internshipContent {
   display: flex;
-  justify-content: space-evenly;
-  background-color: black;
-  padding: 2rem 0 2rem 0;
-  margin-top: 1rem;
-  border: solid 0.5px #596264;
-  border-radius: 0.5rem;
+  justify-content: space-between;
 }
 #internshipText {
   display: flex;
   flex-direction: column;
-  font-size: 1.5rem;
-  line-height: 2.5rem;
   width: 45%;
 }
 #bruinshackLink {
@@ -110,14 +114,23 @@
   border-radius: 0.5rem;
   overflow: hidden;
 }
-
-#projects {
-  margin-top: 2rem;
-}
 #projectsContent {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5rem;
+  margin-top: 1rem;
+}
+#contactContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+#links {
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
   margin-top: 1rem;
 }
 
