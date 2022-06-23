@@ -1,14 +1,16 @@
 import styles from "../../styles/Navbar/NavbarLink.module.css"
+import Link from "next/link"
 const NavbarLink = (props) => {
   return (
-    <a 
-      className={styles.link}
+    <Link 
       href={props.href}
       // target="_blank"
       // rel="noreferrer"
     >
-      {props.name}
-    </a>
+      <a className={styles.link}>
+        {props.name}
+      </a>
+    </Link>
   )
 }
 

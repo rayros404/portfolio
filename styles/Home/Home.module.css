@@ -25,21 +25,6 @@
   gap: 1rem;
   margin-top: 1.5rem;
 }
-#work {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 2rem;
-  text-decoration: none;
-  width: 250px;
-  height: 75px;
-  color: #f7d74e;
-  background-color: black;
-  border: solid 0.5px #f7d74e;
-  border-radius: 0.5rem;
-  transition: 0.7s;
-}
 #resume {
   display: flex;
   justify-content: center;
@@ -61,25 +46,24 @@
   width: 400px;
   background-image: linear-gradient(0deg, #fab12a, #f7d74e);
   border: solid 5px black;
-
 }
 .sectionTitle {
   color: white;
   font-weight: 700;
   font-size: 3rem;
-  margin-top: 2rem;
-
+  margin-top: 3rem;
 }
 .sectionText {
   color: white;
   font-size: 1.5rem;
+  margin-bottom: 2rem;
   line-height: 2.5rem;
 }
 .sectionContent {
   background-color: black;
   padding: 2rem 3rem;
   margin-top: 1rem;
-  border: solid 0.5px #596264;
+  border: solid 0.5px #f7d74e;
   border-radius: 0.5rem;
 }
 #internshipSubtitle {
@@ -96,19 +80,6 @@
   display: flex;
   flex-direction: column;
   width: 45%;
-}
-#bruinshackLink {
-  text-align: center;
-  font-size: 1.25rem;
-  text-decoration: none;
-  width: 200px;
-  color: black;
-  background-color: white;
-  padding: 0.75rem;
-  margin-top: 1.5rem;
-  border: solid 0.5px black;
-  border-radius: 0.5rem;
-  transition: 0.3s;
 }
 #internshipImage {
   border-radius: 0.5rem;
@@ -134,11 +105,7 @@
   margin-top: 1rem;
 }
 
-#work:hover {
-  color: black;
-  background-image: linear-gradient(0deg, #fab12a, #f7d74e);
-  border: solid 0.5px black;
-}
+
 #resume:hover {
   color: #f7d74e;
   background-color: black;

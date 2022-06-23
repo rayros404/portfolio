@@ -2,6 +2,7 @@ import styles from "../styles/Home/Home.module.css"
 import ProjectCard from "../components/Home/ProjectCard"
 import Image from "next/image"
 import Link from "next/link"
+import PrimaryButton from "../components/Home/PrimaryButton"
 import ContactLink from "../components/Home/ContactLink"
 
 const Home = () => {
@@ -16,10 +17,10 @@ const Home = () => {
             Frontend Developer
           </div>
           <div id={styles.contentBtns}>
-          <Link href="/">
-            <a id={styles.work}>
-              View My Work
-            </a>
+          <Link href="/#internship" passHref>
+            <PrimaryButton
+              name="View My Work"
+            />
           </Link>
           <a 
             id={styles.resume}
@@ -42,7 +43,7 @@ const Home = () => {
           />
         </div>
       </section>
-      <section id={styles.internship}>
+      <section id="internship">
       <span id={styles.internshipTitle} className={styles.sectionTitle}>Internship</span>
       <span id={styles.internshipSubtitle}>BruinShack</span>
         <div 
@@ -56,14 +57,12 @@ const Home = () => {
               <br/>
               Technologies - HTML | SCSS | JavaScript | React | NextJS | Node | Express | Git
             </div>
-            <a
-              id={styles.bruinshackLink}
+            <PrimaryButton 
               href="https://bruinshack-my-contribution.vercel.app/"
               target="_blank"
               rel="noreferrer"
-            >
-            Show Me
-            </a>
+              name="Let's See It"
+            />
           </div>
           <div id={styles.internshipImage}>
             <Image 
@@ -75,7 +74,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section id={styles.projects}>
+      <section id="projects">
         <div id={styles.projectsTitle} className={styles.sectionTitle}>Projects</div>
         <div 
           id={styles.projectsContent}
@@ -88,7 +87,7 @@ const Home = () => {
           <ProjectCard/>
         </div>
       </section>
-      <section id={styles.contact}>
+      <section id="contact">
         <div
           id={styles.contactTitle}
           className={styles.sectionTitle}

@@ -2,6 +2,7 @@ import { useState } from "react"
 import styles from "../../styles/Navbar/Navbar.module.css"
 import Menu from "./Menu"
 import NavbarLink from "./NavbarLink"
+import Link from "next/link"
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false)
@@ -11,12 +12,11 @@ const Navbar = () => {
 
   return (
       <nav id={styles.navbar}>
-        <a 
-          id={styles.homeBtn}
-          href="/"
-        >
-          Ray Ros
-        </a>
+        <Link href="/">
+          <a id={styles.homeBtn}>
+            RR
+          </a>
+        </Link>
         <Menu 
           onClick={toggleShowMenu}
         />
@@ -25,19 +25,15 @@ const Navbar = () => {
           className={showMenu ? styles.show : styles.noShow}
         >
           <NavbarLink
-            href="/"
+            href="/#internship"
             name="Internship"
           />
           <NavbarLink
-            href="/"
+            href="/#projects"
             name="Projects"
           />
           <NavbarLink
-            href="/"
-            name="About"
-          />
-          <NavbarLink
-            href="/"
+            href="/#contact"
             name="Contact"
           />
         </div>
