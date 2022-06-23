@@ -1,43 +1,32 @@
 #home {
   padding: 0 100px;
 }
+.section {
+  margin-top: 3rem;
+}
 .sectionTitle {
   color: white;
   font-weight: 700;
   font-size: 3rem;
-  margin-top: 3rem;
+  
 }
-.sectionText {
-  color: white;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  line-height: 2.5rem;
+.sectionSubtitle {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #7c9195;
 }
 .sectionContent {
   background-color: black;
-  padding: 2rem 3rem;
+  padding: 2rem 0;
   margin-top: 1rem;
   border: solid 0.5px #f7d74e;
   border-radius: 0.5rem;
 }
-#internshipSubtitle {
-  font-weight: 700;
-  font-size: 2rem;
-  color: #7c9195;
-  margin-left: 1rem;
-}
-#internshipContent {
-  display: flex;
-  justify-content: space-between;
-}
-#internshipText {
-  display: flex;
-  flex-direction: column;
-  width: 45%;
-}
-#internshipImage {
-  border-radius: 0.5rem;
-  overflow: hidden;
+.sectionText {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+  line-height: 3.5rem;
 }
 #projectsContent {
   display: flex;
@@ -59,21 +48,43 @@
   margin-top: 1rem;
 }
 
-
-#resume:hover {
-  color: #f7d74e;
-  background-color: black;
-  border: solid 0.5px #f7d74e;
-  background-image: none;
-}
-#bruinshackLink:hover {
-  color: white;
-  background-color: black;
-  border: solid 0.5px white;
+@media screen and (max-width: 1000px) {
+  .sectionContent {
+    padding: 2rem 0;
+  }
+  .sectionText {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
   #home {
     padding: 0 32px;
+  }
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+  .sectionSubtitle {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  .sectionSubtitle {
+    font-size: 1.5rem;
+  }
+  .sectionContent {
+    background-color: black;
+    padding: 1.25rem 0;
+    margin-top: 0.5rem;
+  }
+  .sectionText {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }

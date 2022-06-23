@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import ContactLink from "../components/Home/ContactLink"
 import Hero from "../components/Home/Hero"
-
+import Internship from "../components/Home/Internship"
 import PrimaryButton from "../components/Home/PrimaryButton"
 
 
@@ -12,37 +12,7 @@ const Home = () => {
   return (
     <div id={styles.home}>
       <Hero />
-      {/* <section id="internship">
-      <span id={styles.internshipTitle} className={styles.sectionTitle}>Internship</span>
-      <span id={styles.internshipSubtitle}>BruinShack</span>
-        <div 
-          id={styles.internshipContent}
-          className={styles.sectionContent}  
-        >
-          <div id={styles.internshipText}>
-            <div className={styles.sectionText}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit in recusandae repudiandae tempore necessitatibus, vel sapiente illum dolorum officia atque!
-              <br/>
-              <br/>
-              Technologies - HTML | SCSS | JavaScript | React | NextJS | Node | Express | Git
-            </div>
-            <PrimaryButton 
-              href="https://bruinshack-my-contribution.vercel.app/"
-              target="_blank"
-              rel="noreferrer"
-              name="Let's See It"
-            />
-          </div>
-          <div id={styles.internshipImage}>
-            <Image 
-              src="/BruinShackScreenshots/homescreen.jpg"
-              height={450}
-              width={450}
-              alt="internshipHomepage"
-            />
-          </div>
-        </div>
-      </section> */}
+      <Internship />
       {/* <section id="projects">
         <div id={styles.projectsTitle} className={styles.sectionTitle}>Projects</div>
         <div 

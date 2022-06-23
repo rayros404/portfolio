@@ -5,13 +5,13 @@
   text-align: center;
   font-size: 2rem;
   text-decoration: none;
-  width: 250px;
-  height: 75px;
+  padding: 1rem;
   color: #f7d74e;
   background-color: black;
   border: solid 0.5px #f7d74e;
   border-radius: 0.5rem;
   transition: 0.7s hover;
+  white-space: nowrap;
 }
 
 .primaryBtn:hover {
@@ -23,15 +23,13 @@
 @media screen and (max-width: 1000px) {
   .primaryBtn {
     font-size: 1.5rem;
-    width: 175px; 
-    height: 60px;
+    padding: 0.85rem;
   }
 }
 
 @media screen and (max-width: 425px) {
   .primaryBtn {
     font-size: 1.25rem;
-    width: 150px; 
-    height: 50px;
+    padding: 0.7rem;
   }
 }
