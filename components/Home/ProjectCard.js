@@ -6,7 +6,7 @@ const ProjectCard = (props) => {
     <Link href={props.href}>
     <div 
       className={styles.projectCard}
-      style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${props.image})`}}
+      style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${props.image})`}}
     >
       <div id={styles.projectName}>
         {props.name}

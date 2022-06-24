@@ -1,4 +1,4 @@
-import styles from "../styles/ColorFlipper.module.css"
+import styles from "../styles/Projects/ColorFlipper.module.css"
 import SecondaryButton from "../components/Home/SecondaryButton"
 import { useState } from "react"
 

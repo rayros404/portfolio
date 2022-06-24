@@ -23,6 +23,11 @@ const Projects = () => {
           name="Color Flipper"
           image="/ProjectScreenshots/colorFlipperScreenshot.jpg"
         />
+        <ProjectCard 
+          href="/counter"
+          name="Counter"
+          image="/ProjectScreenshots/counterScreenshot.jpg"
+        />
       </div>
     </section> 
   )
