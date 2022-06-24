@@ -28,9 +28,13 @@ const ColorFlipper = () => {
     }
     return hexColor
   }
-  const toggleMode = () => {
-    setMode(prevMode => !prevMode)
+  const toggleSimple = () => {
+    setMode(true)
   }
+  const toggleHex = () => {
+    setMode(false)
+  }
+  
   const changeColor = () => {
     mode ? setColor(getSimpleColor()) : setColor(getHexColor())
   }
@@ -45,7 +49,7 @@ const ColorFlipper = () => {
           id={styles.simpleBtn}
           className={styles.modeBtn}
           style={{border: mode ? "2px solid #f7d74e" : "2px solid black" }}
-          onClick={toggleMode}
+          onClick={toggleSimple}
         >
           Simple
         </button>
@@ -53,7 +57,7 @@ const ColorFlipper = () => {
           id={styles.hexBtn}
           className={styles.modeBtn}
           style={{border: !mode ? "2px solid #f7d74e" : "2px solid black" }}
-          onClick={toggleMode}
+          onClick={toggleHex}
         >
           Hex
         </button>
