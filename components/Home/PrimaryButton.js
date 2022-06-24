@@ -7,6 +7,7 @@ const PrimaryButton = (props) => {
       target={props.target}  
       rel={props.rel}
       download={props.download}
+      onClick={props.handleClick}
     >
       {props.name}
     </a>

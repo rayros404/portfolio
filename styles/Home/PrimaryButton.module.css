@@ -10,8 +10,9 @@
   background-color: black;
   border: solid 0.5px #f7d74e;
   border-radius: 0.5rem;
-  transition: 0.7s hover;
+  transition: 0.7s;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .primaryBtn:hover {

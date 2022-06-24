@@ -18,12 +18,11 @@ const Projects = () => {
         id={projectsStyles.projectsContent}
         className={styles.sectionContent}  
       >
-        {/* <ProjectCard/>
-        <ProjectCard/>
-        <ProjectCard/>
-        <ProjectCard/>
-        <ProjectCard/> */}
-        Coming soon
+        <ProjectCard 
+          href="/colorFlipper"
+          name="Color Flipper"
+          image="/ProjectScreenshots/colorFlipperScreenshot.jpg"
+        />
       </div>
     </section> 
   )
