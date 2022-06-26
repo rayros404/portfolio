@@ -1,0 +1,85 @@
+#pokemonPage{
+  padding: 16px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+#identity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  align-self: flex-start;
+}
+#name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+#background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  padding: 1.5rem;
+  border: solid 0.5px #f7d74e;
+  border-radius: 0.5rem;
+}
+#split {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+}
+#picture {
+  position: relative;
+  height: 300px;
+  min-width: 300px;
+}
+#info {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem 3rem 2rem;
+  gap: 1rem;
+}
+#genus {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+#flavorText {
+  font-size: 2rem;
+}
+#stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+#type {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#height {
+  display: flex;
+  align-items: center;
+}
+#weight {
+  display: flex;
+  align-items: center;
+}
+.value {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+#evolution {
+  margin-top: 1rem;
+}
+#evolutionTitle {
+  font-size: 2rem;
+}
+#evolutionChain {
+  display: flex;
+  font-size: 2rem;
+  align-items: center;
+  gap: 2rem;
+}
