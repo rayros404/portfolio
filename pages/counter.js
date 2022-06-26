@@ -2,7 +2,7 @@ import styles from "../styles/Projects/Counter.module.css"
 import PrimaryButton from "../components/Home/PrimaryButton"
 import SecondaryButton from "../components/Home/SecondaryButton"
 import { useState } from "react"
-const counter = () => {
+const Counter = () => {
   const [count, setCount] = useState(0)
   const decrease = () => {
     setCount(prevCount => prevCount - 1)
@@ -35,4 +35,4 @@ const counter = () => {
   )
 }
 
-export default counter
+export default Counter

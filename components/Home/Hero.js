@@ -15,26 +15,24 @@ const Hero = () => {
           Frontend Developer
         </div>
         <div id={styles.contentBtns}>
-          <Link href="/#internship" passHref>
-            <PrimaryButton
-              name="View My Work"
-            />
-          </Link>
+          <PrimaryButton
+            name="View My Work"
+            href="/#internship"
+          />
           <SecondaryButton 
-            href="/Home/resume.pdf"
             download={true}
             name="Resume"
+            href="/Home/resume.pdf"
           />
         </div>
       </div>
       <div id={styles.heroHeadshot}>
         <Image 
           src="/Home/portfolioprofile.png"
-          height={256}
-          width={215}
           layout="fill"
           objectFit="contain"
           alt="profile"
+          priority
         />
       </div>
     </section>

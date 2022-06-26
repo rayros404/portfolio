@@ -19,14 +19,12 @@ const Internship = () => {
           <div id={internshipStyles.top}>
             <div id={internshipStyles.internshipText}>
               <p className={styles.sectionText}>
-                BruinShack is an online resource that helps UCLA students find and review off-campus housing. I was incredibly blessed to have joined the team in January 2022 as a front-end developer. My role was to coordinate with the UI/UX design and Web Dev teams to transition design mockups into interactive and responsive web pages.
+                BruinShack is an online resource that helps UCLA students find and review off-campus housing. My role as a frontend developer was to coordinate with the UI/UX design and Web Dev teams to transition design mockups into interactive and responsive web pages.
               </p>
             </div>
             <div id={internshipStyles.internshipImage}>
               <Image 
                 src="/BruinShackScreenshots/homescreen.jpg"
-                height={821}
-                width={800}
                 layout="fill"
                 objectFit="contain"
                 alt="internshipHomepage"

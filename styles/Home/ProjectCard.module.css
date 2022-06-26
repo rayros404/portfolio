@@ -15,6 +15,11 @@
   background-repeat: no-repeat;
   transition: 0.3s;
 }
+.projectName {
+  padding: 0.5rem 1rem;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 0.5rem;
+}
 
 .projectCard:hover {
   cursor: pointer;
