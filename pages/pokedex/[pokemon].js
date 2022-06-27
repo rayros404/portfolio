@@ -3,11 +3,14 @@ import Image from "next/image"
 import Type from "../../components/Pokedex/Type"
 import HorizontalDivider from "../../components/Home/HorizontalDivider"
 import EvolutionCard from "../../components/Pokedex/EvolutionCard"
-
+import Link from "next/link"
 const PokemonPage = () => {
   return (
     <div id={styles.pokemonPage}>
       <div id={styles.identity}>
+        <Link href="/pokedex">
+          <div id={styles.backHome}>&lt;</div>
+        </Link>
         <div id={styles.entryNumber}>#001</div>
         <div id={styles.name}>BULBASAUR</div>
       </div>
@@ -19,6 +22,7 @@ const PokemonPage = () => {
               layout="fill"
               objectFit="contain"
               alt="pokemon"
+              // priority={true}
             />
           </div>
           <div id={styles.info}>
