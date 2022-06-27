@@ -22,13 +22,14 @@ const PokemonPage = () => {
             />
           </div>
           <div id={styles.info}>
-            <div id={styles.genus}>SEED POKéMON</div>
+            <div id={styles.genus}>Seed Pokémon</div>
             <div id={styles.flavorText}>A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.</div>
             <div id={styles.stats}>
-              <div id={styles.type}>
-                <div>Type:</div>
-                <Type type="grass"/>
-                <Type type="poison"/>
+              <div id={styles.type}>Type:
+                <span id={styles.typeContainer}>
+                  <Type type="grass"/>
+                  <Type type="poison"/>
+                </span>
               </div>
               <div id={styles.height}>Height: 
                 <span className={styles.value}>0.7 m</span>
@@ -42,22 +43,22 @@ const PokemonPage = () => {
         <HorizontalDivider />
         <div id={styles.evolution}>
           <div id={styles.evolutionTitle}>EVOLUTION</div>
-        </div>
-        <div id={styles.evolutionChain}>
-          <EvolutionCard 
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png"
-            name="Bulbasaur"
-          />
-          <div className={styles.arrow}> &gt; </div>
-          <EvolutionCard 
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/2.png"
-            name="Ivysaur"
-          />
-          <div className={styles.arrow}> &gt; </div>
-          <EvolutionCard 
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/3.png"
-            name="Venusaur"
-          />
+            <div id={styles.evolutionChain}>
+              <EvolutionCard 
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png"
+                name="Bulbasaur"
+              />
+              <div className={styles.arrow}> &gt; </div>
+              <EvolutionCard 
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/2.png"
+                name="Ivysaur"
+              />
+              <div className={styles.arrow}> &gt; </div>
+              <EvolutionCard 
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/3.png"
+                name="Venusaur"
+              />
+          </div>
         </div>
       </div>
     </div>
