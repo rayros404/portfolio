@@ -23,6 +23,7 @@
   color: #7c9195;
 }
 .name {
+  text-transform: capitalize;
   font-size: 1.75rem;
 }
 .image {
