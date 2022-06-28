@@ -11,6 +11,7 @@
   width: 100px;
 }
 .name {
+  text-transform: capitalize;
   color: white;
   font-size: 1rem;
 }
