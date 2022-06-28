@@ -1,26 +1,96 @@
 .pokemonCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background-color: black;
+  padding: 1rem 0;
+  border: 2px black solid;
+  border-radius: 0.5rem;
+  min-width: 250px;
+  max-width: 250px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.entryNumber {
+  font-size: 0.75rem;
+  color: #7c9195;
+}
+.name {
+  font-size: 1.75rem;
+}
+.image {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 170px;
-  width: 170px;
-  background-color: black;
-  border: 2px black solid;
-  border-radius: 0.5rem;
-  transition: 0.3s;
-  cursor: pointer;
+  height: 200px;
+  min-width: 200px;
 }
 .circle {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   background-color: #111111;
 }
-.pokemonCard:hover {
-  border: 2px white solid;
+.tags {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
 }
-@media screen and (max-width: 768px) {
+.showTags {
+  font-family: 'Oswald', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f7d74e;
+  background-color: black;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+}
+.arrow {
+  transform: rotate(-90deg);
+}
+.containerWrapper {
+  position: relative;
+}
+.tagsContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+  background-color: black;
+  max-height: 0;
+  overflow: hidden;
+  z-index: 3;
+  padding: 0 1rem;
+  transition: 0.3s;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+
+}
+.show {
+  padding: 1rem;
+  max-height: fit-content;
+  outline: 2px black solid;  
+  border: 2px #f7d74e solid;
+}
+.pokemonCard:hover {
+  border: 2px #f7d74e solid;
+}
+/* @media screen and (max-width: 768px) {
   .pokemonCard {
     height: 135px;
     width: 135px;
@@ -39,4 +109,4 @@
     height: 50px;
     width: 50px;
   }
-}
+} */

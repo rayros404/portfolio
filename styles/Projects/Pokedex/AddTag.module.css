@@ -1,0 +1,20 @@
+.form {
+  display: flex;
+  justify-content: center;
+}
+.input {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  color: #7c9195;
+  background-color: #111111;
+  width: 80%;
+  border: none;
+  border-bottom: 3px solid #111111;
+  border-radius: 0.5rem;
+  padding: 0.25rem 1rem; 
+}
+
+.input:focus {
+  outline: none;
+  border-bottom: 3px solid #f7d74e;
+}

@@ -5,8 +5,8 @@ import HorizontalDivider from "../../components/Home/HorizontalDivider"
 import EvolutionCard from "../../components/Pokedex/EvolutionCard"
 import Link from "next/link"
 import { useState, useEffect } from "react"
-const pokemonData = "https://pokeapi.co/api/v2/pokemon/mew";
-const pokemonSpeciesData = "https://pokeapi.co/api/v2/pokemon-species/mew";
+const pokemonData = "https://pokeapi.co/api/v2/pokemon/mr-mime";
+const pokemonSpeciesData = "https://pokeapi.co/api/v2/pokemon-species/mr-mime";
 
 const PokemonPage = () => {
   const [data, setData] = useState()

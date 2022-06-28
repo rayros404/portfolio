@@ -1,0 +1,10 @@
+.tag {
+  text-align: center;
+  color: black;
+  background-color: #f7d74e;
+  background-image: linear-gradient(0deg, #fab12a, #f7d74e);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  word-break: break-all;
+}
