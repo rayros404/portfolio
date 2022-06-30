@@ -2,14 +2,33 @@ import styles from "../../styles/Projects/Pokedex/PokemonCard.module.css"
 import Image from "next/image"
 import AddTag from "./AddTag"
 import Tag from "./Tag"
-import { useEffect, useState } from "react"
+import { useEffect, useState, Component } from "react"
+
 
 const PokemonCard = (props) => {
   const [tags, setTags] = useState()
   const [showTags, setShowTags] = useState(false)
+
+
+
+  useEffect(() => {
+    setTags(props.tags.map(tag => (
+      <Tag 
+        key={tag}
+        name={tag}
+      />
+    )))
+
+  }, [props.tags])
+
+
   const toggleShow = () => {
     setShowTags(prevShowTags => !prevShowTags)
   }
+  const openShow = () => {
+    setShowTags(true)
+  }
+
   const formatEntryNumber = (number) => {
     if (number) {
       switch(number.toString().length) {
@@ -22,15 +41,7 @@ const PokemonCard = (props) => {
       }
     }
   }
-  useEffect(() => {
-    setTags(props.tags.map(tag => (
-      <Tag 
-        key={tag}
-        name={tag}
-      />
-    )))
-    console.log('ran')
-  }, [props.tags])
+
 
   if (tags) {
    return (
@@ -50,7 +61,11 @@ const PokemonCard = (props) => {
         <div className={styles.circle}></div>
       </div>
       <div className={styles.tags}>
-        <AddTag />
+        <AddTag 
+          entryNumber={props.entryNumber}
+          openShow={openShow}
+          setNewTag={props.setNewTag}
+        />
         <button 
           className={styles.showTags}
           onClick={toggleShow}  
@@ -75,7 +90,6 @@ const PokemonCard = (props) => {
   else {
     return <div>Loading</div>
   }
-
 }
 
 export default PokemonCard
