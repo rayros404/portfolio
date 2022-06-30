@@ -2,10 +2,10 @@ import styles from "../../styles/Projects/Pokedex/PokemonCard.module.css"
 import Image from "next/image"
 import AddTag from "./AddTag"
 import Tag from "./Tag"
-import { useEffect, useState, Component } from "react"
+import { useEffect, useState, memo } from "react"
 
 
-const PokemonCard = (props) => {
+const PokemonCard = memo((props) => {
   const [tags, setTags] = useState()
   const [showTags, setShowTags] = useState(false)
 
@@ -90,6 +90,6 @@ const PokemonCard = (props) => {
   else {
     return <div>Loading</div>
   }
-}
+})
 
 export default PokemonCard
