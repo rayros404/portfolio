@@ -4,32 +4,35 @@ import Type from "../../components/Pokedex/Type"
 import HorizontalDivider from "../../components/Home/HorizontalDivider"
 import EvolutionCard from "../../components/Pokedex/EvolutionCard"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
-const pokemonData = "https://pokeapi.co/api/v2/pokemon/mr-mime";
-const pokemonSpeciesData = "https://pokeapi.co/api/v2/pokemon-species/mr-mime";
+const pokemonData = "https://pokeapi.co/api/v2/pokemon/";
+const pokemonSpeciesData = "https://pokeapi.co/api/v2/pokemon-species/";
 
 const PokemonPage = () => {
   const [data, setData] = useState()
   const [speciesData, setSpeciesData] = useState()
   const [evolutionData, setEvolutionData] = useState()
-  useEffect(() => {
-    fetch(pokemonData)
-      .then(response => response.json())
-      .then(data => {
-        setData(data)
-      })
-
-    fetch(pokemonSpeciesData)
-      .then(response => response.json())
-      .then(data => {
-        setSpeciesData(data)
-        fetch(data.evolution_chain.url)
-          .then(response => response.json())
-          .then(data => {
-            setEvolutionData(data)
-          })
-      })
-  }, [])
+  const router = useRouter()
+  useEffect(() => { 
+    if (Object.keys(router.query.length !== 0)) {
+      fetch(`${pokemonData}${router.query.name}`)
+        .then(response => response.json())
+        .then(data => {
+          setData(data)
+        })
+      fetch(`${pokemonSpeciesData}${router.query.name}`)
+        .then(response => response.json())
+        .then(data => {
+          setSpeciesData(data)
+          fetch(data.evolution_chain.url)
+            .then(response => response.json())
+            .then(data => {
+              setEvolutionData(data)
+            })
+        })
+    }
+  }, [router.query.name])
 
   const formatEntryNumber = (number) => {
     if (number) {
@@ -87,7 +90,7 @@ const PokemonPage = () => {
                 layout="fill"
                 objectFit="contain"
                 alt="pokemon"
-                priority
+                priority={true}
               />
             </div>
             <div id={styles.info}>

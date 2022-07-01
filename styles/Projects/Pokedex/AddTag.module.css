@@ -9,12 +9,12 @@
   background-color: #111111;
   width: 80%;
   border: none;
-  border-bottom: 3px solid #111111;
+  border-bottom: 2px solid #111111;
   border-radius: 0.5rem;
   padding: 0.25rem 1rem; 
 }
 
 .input:focus {
   outline: none;
-  border-bottom: 3px solid #f7d74e;
+  border-bottom: 2px solid #f7d74e;
 }
