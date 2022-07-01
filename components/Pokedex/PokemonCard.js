@@ -7,7 +7,6 @@ import Link from "next/link"
 
 
 const PokemonCard = memo((props) => {
-  console.log('ran')
   const [tags, setTags] = useState()
   const [showTags, setShowTags] = useState(false)
   

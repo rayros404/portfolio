@@ -3,6 +3,7 @@ import { useState, useEffect, } from "react"
 import Image from "next/image"
 import Searchbar from "../../components/Pokedex/Searchbar"
 import PokemonCard from "../../components/Pokedex/PokemonCard"
+import PrimaryButton from "../../components/Home/PrimaryButton"
 const allPokemonApi = "https://pokeapi.co/api/v2/pokedex/kanto/"
 const pokemonThumbnail = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/"
 
@@ -11,7 +12,7 @@ const Pokedex = () => {
   const [newTag, setNewTag] = useState(["", null])
   const [nameSearch, setNameSearch] = useState("")
   const [tagSearch, setTagSearch] = useState("")
- 
+  const [loadedCards, setLoadedCards] = useState(20)
 
   useEffect(() => {
     fetch(allPokemonApi)
@@ -40,6 +41,11 @@ const Pokedex = () => {
 
   }, [newTag])
 
+  useEffect(() => {
+    setLoadedCards(20)
+
+  }, [nameSearch, tagSearch])
+
 
 
   const handleNameChange = (event) => {
@@ -51,7 +57,7 @@ const Pokedex = () => {
 
   const searchForTag = (tags, currentTag) => {
     for (const tag of tags) {
-      if (tag.includes(currentTag)) return true
+      if (tag.toLowerCase().includes(currentTag.toLowerCase())) return true
     }
     return false
   }
@@ -73,36 +79,41 @@ const Pokedex = () => {
     ))
   }
 
+  const handleLoadMore = () => {
+    setLoadedCards(prev => prev + 20)
+  }
+  
   const filteredData = pokemonData.filter(pokemon => {
     const name = pokemon.pokemon_species.name.toLowerCase()
     const nameFlag = name.includes(nameSearch.toLowerCase())
     const tagFlag = searchForTag(pokemon.tags, tagSearch)
     return nameFlag && tagFlag
   })
-  console.log(filteredData)
   const pokemonCards= filteredData.map(pokemon => (
     <PokemonCard 
-      key={pokemon.entry_number}
-      entryNumber={pokemon.entry_number}
-      name={pokemon.pokemon_species.name}
-      src={`${pokemonThumbnail}${pokemon.entry_number}.png`}
-      tags={pokemon.tags}
-      setNewTag={setNewTag}
-      route={{
-        pathname: `pokedex/[id]`,
-        query: {
-          id: pokemon.entry_number,
-          name: pokemon.pokemon_species.name
-        }
-      }}
+    key={pokemon.entry_number}
+    entryNumber={pokemon.entry_number}
+    name={pokemon.pokemon_species.name}
+    src={`${pokemonThumbnail}${pokemon.entry_number}.png`}
+    tags={pokemon.tags}
+    setNewTag={setNewTag}
+    route={{
+      pathname: `pokedex/[id]`,
+      query: {
+        id: pokemon.entry_number,
+        name: pokemon.pokemon_species.name
+      }
+    }}
     />
-  ))
-
+    ))
+    
+  console.log(pokemonCards.length)
+  console.log(loadedCards)
   
   if (pokemonCards) {
     return (
       <div id={styles.pokedex}>
-        <div id={styles.title}>Pokédex</div>
+        <div id={styles.title}>POKéDEX</div>
         <div id={styles.sticky}>
           <Searchbar
             name="name"
@@ -116,8 +127,17 @@ const Pokedex = () => {
           />
         </div>  
         <div className={styles.cardContainer}>
-          {pokemonCards}
+          {pokemonCards.slice(0, loadedCards)}
         </div>
+        {
+          loadedCards < pokemonCards.length &&
+          <div id={styles.loadMore}>
+            <PrimaryButton 
+              name="Load More"
+              handleClick={handleLoadMore}
+            />
+          </div>
+        }
       </div>
     )
   }
