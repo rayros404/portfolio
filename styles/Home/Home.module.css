@@ -30,9 +30,6 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .sectionContent {
-    padding: 2rem 0;
-  }
   .sectionText {
     font-size: 1.25rem;
     line-height: 2rem;

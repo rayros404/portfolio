@@ -13,6 +13,7 @@ const PokemonPage = () => {
   const [data, setData] = useState()
   const [speciesData, setSpeciesData] = useState()
   const [evolutionData, setEvolutionData] = useState()
+  const [error, setError] = useState()
   const router = useRouter()
   useEffect(() => { 
     if (Object.keys(router.query.length !== 0)) {
@@ -21,6 +22,10 @@ const PokemonPage = () => {
         .then(data => {
           setData(data)
         })
+        .catch((error) => {
+          setError(error)
+        })
+        
       fetch(`${pokemonSpeciesData}${router.query.name}`)
         .then(response => response.json())
         .then(data => {
@@ -122,14 +127,17 @@ const PokemonPage = () => {
           </div>
           </>
           }
-          
         </div>
       </div>
     )
   }
   
+  else if (error) {
+    return <div id={styles.error}>Could not find pokemon</div>
+  }
+
   else {
-    return <div>Loading</div>
+    return <div id={styles.loading}>Loading...</div>
   }
 }
 

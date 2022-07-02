@@ -106,9 +106,6 @@ const Pokedex = () => {
     }}
     />
     ))
-    
-  console.log(pokemonCards.length)
-  console.log(loadedCards)
   
   if (pokemonCards) {
     return (
