@@ -1,0 +1,32 @@
+#sudokuSolver {
+  padding: 16px 100px;
+}
+#title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+}
+#main {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 16px;
+}
+#board {
+  /* display: grid; */
+  background-color: orange;
+  width: 600px;
+  height: 600px;
+}
+#btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 3rem;
+}
+#numberBtns {
+  background-color: orange;
+  width: 330px;
+  height: 330px;
+}
