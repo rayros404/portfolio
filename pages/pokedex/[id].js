@@ -37,7 +37,7 @@ const PokemonPage = () => {
             })
         })
     }
-  }, [router.query.name])
+  }, [router.query.name, router.query.length])
 
   const formatEntryNumber = (number) => {
     if (number) {
