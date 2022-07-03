@@ -1,0 +1,5 @@
+.line {
+  background-color: #7c9195;
+  grid-column-start: 1;
+  grid-column-end: span 19;
+}

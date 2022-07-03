@@ -11,13 +11,15 @@
   display: flex;
   justify-content: center;
   gap: 3rem;
-  margin-top: 16px;
+  margin: 1rem 0;
 }
 #board {
-  /* display: grid; */
+  display: grid;
+  grid-template-columns: repeat(3, 2px 60px 1px 60px 1px 60px) 2px;
+  grid-template-rows: repeat(3, 2px 60px 1px 60px 1px 60px) 2px;
   background-color: orange;
-  width: 600px;
-  height: 600px;
+  width: 554px;
+  height: 554px;
 }
 #btns {
   display: flex;
