@@ -22,28 +22,28 @@
   border: solid #7c9195 2px;
 }
 #verticalLine1 {
-  background-color: white;
+  background-color: #7c9195;
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: -1;
 }
 #verticalLine2 {
-  background-color: white;
+  background-color: #7c9195;
   grid-column-start: 8;
   grid-column-end: 9;
   grid-row-start: 1;
   grid-row-end: -1;
 }
 #horizontalLine1 {
-  background-color: white;
+  background-color: #7c9195;
   grid-row-start: 4;
   grid-row-end: 5;
   grid-column-start: 1;
   grid-column-end: -1;
 }
 #horizontalLine2 {
-  background-color: white;
+  background-color: #7c9195;
   grid-row-start: 8;
   grid-row-end: 9;
   grid-column-start: 1;

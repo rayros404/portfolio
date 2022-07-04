@@ -1,6 +1,13 @@
 .square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #7c9195;
   background-color: black;
   border: solid #7c9195 1px;
   height: 60px;
   width: 60px;
+  cursor: pointer;
 }
