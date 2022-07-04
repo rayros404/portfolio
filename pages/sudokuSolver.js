@@ -1,197 +1,26 @@
 import styles from "../styles/Projects/SudokuSolver/SudokuSolver.module.css"
 import Square from "../components/SudokuSolver/Square"
-import VerticalLine from "../components/SudokuSolver/VerticalLine"
-import HorizontalLine from "../components/SudokuSolver/HorizontalLine"
 import PrimaryButton from "../components/Home/PrimaryButton"
+import { useState } from "react"
 
 const sudokuSolver = () => {
+  const [board, setBoard] = useState([...Array(81)])
+  const squares = board.map((square, idx) => (
+    <Square 
+      key={idx}
+      value={3}
+    />
+  ))
   return (
     <div id={styles.sudokuSolver}>
       <div id={styles.title}>Sudoku Solver</div>
       <main id={styles.main}>
         <div id={styles.board}>
-          <HorizontalLine bold={true}/>
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <HorizontalLine/>
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <HorizontalLine/>
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <HorizontalLine bold={true}/>
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <HorizontalLine/>
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <HorizontalLine/>
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <HorizontalLine bold={true}/>
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <HorizontalLine/>
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <HorizontalLine/>
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine/>
-          <Square />
-          <VerticalLine bold={true}/>
-          <HorizontalLine bold={true}/>
-          
+          <div id={styles.verticalLine1}></div>
+          <div id={styles.verticalLine2}></div>
+          <div id={styles.horizontalLine1}></div>
+          <div id={styles.horizontalLine2}></div>
+          {squares}
 
         </div>
         <div id={styles.btns}>
