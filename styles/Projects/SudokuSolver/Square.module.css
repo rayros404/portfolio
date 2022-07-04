@@ -11,3 +11,8 @@
   width: 60px;
   cursor: pointer;
 }
+
+.selected {
+  color: black;
+  background-color: #f7d74e;
+}

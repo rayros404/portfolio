@@ -1,6 +1,7 @@
 import styles from "../styles/Projects/SudokuSolver/SudokuSolver.module.css"
 import Square from "../components/SudokuSolver/Square"
 import PrimaryButton from "../components/Home/PrimaryButton"
+import NumberButton from "../components/SudokuSolver/NumberButton"
 import { useEffect, useState } from "react"
 
 const sudokuSolver = () => {
@@ -29,8 +30,16 @@ const sudokuSolver = () => {
   const squares = board.map((square, idx) => (
     <Square 
       key={idx}
+      id={idx}
       value={board[idx]}
+      selectedSquare={selectedSquare}
       handleSquareClick={() => handleSquareClick(idx)}
+    />
+  ))
+  const numberBtns = [1,2,3,4,5,6,7,8,9].map(number => (
+    <NumberButton 
+      key={number}
+      number={number}
     />
   ))
 
@@ -48,7 +57,8 @@ const sudokuSolver = () => {
         </div>
         <div id={styles.btns}>
           <div id={styles.numberBtns}>
-            </div>
+            {numberBtns}
+          </div>
           <PrimaryButton 
             name="Solve"
           />

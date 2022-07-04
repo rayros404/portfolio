@@ -1,0 +1,13 @@
+.numberBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  height: 110px;
+  width: 110px;
+  color: #f7d74e;
+  background-color: black;
+  border: 2px solid #f7d74e;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
