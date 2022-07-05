@@ -3,12 +3,12 @@ import Square from "../components/SudokuSolver/Square"
 import PrimaryButton from "../components/Home/PrimaryButton"
 import NumberButton from "../components/SudokuSolver/NumberButton"
 import { useEffect, useState, useRef } from "react"
+import next from "next"
 
 const sudokuSolver = () => {
   const [board, setBoard] = useState([...Array(81)])
   const [selectedSquare, setSelectedSquare] = useState()
 
-  console.log(selectedSquare)
   useEffect(() => {
     const handleKeyPress = (event) => {
       let value = parseInt(event.key)
@@ -63,6 +63,101 @@ const sudokuSolver = () => {
   const numberBtnsRef = useRef(null)
   useOutsideClick(boardRef)
 
+
+
+/*`````````````````````````````````````````````````````````` */
+
+
+
+const isInRow = (board, position, value) => {
+  const row = Math.floor(position / 4)
+  const rowValues = board.slice(row * 4, (row + 1) *4)
+  return rowValues.includes(value)
+}
+
+const isInCol = (board, position, value) => {
+  const possibleCols = [0,1,2,3]
+  const col = position % 4
+  const colValues = possibleCols.map(val => (
+    board[col + 4*val]
+  ))
+  return colValues.includes(value)
+}
+
+const isInQuadrant = (board, position, value) => {
+  const possibleQuadrants = {
+    0: [0,1,4,5],
+    1: [2,3,6,7],
+    2: [8,9,12,13],
+    3: [10,11,14,15],
+  }
+  let quadrantValues= null
+  for (const quad in possibleQuadrants) {
+    if (possibleQuadrants[quad].includes(position)) {
+      quadrantValues = possibleQuadrants[quad].map(pos => (
+        board[pos]
+      ))
+      break
+    }
+  }
+  return quadrantValues.includes(value)
+}
+
+const isValid = (board, position, value) => {
+  return !(
+    isInRow(board, position, value) || 
+    isInCol(board, position, value) || 
+    isInQuadrant(board, position, value)
+    )
+}
+
+const generateNewBoard = (board, value) => {
+  let nextSquare = null
+  for (let i = 0; i < board.length; i++) {
+    if (!board[i]) {
+      nextSquare = i
+      break
+    }
+  }
+  let newBoard = [...board]
+  newBoard[nextSquare] = value
+  return newBoard
+}
+
+const solveBoard = (board) => {
+  const possibleValues = [1,2,3,4]
+  let stack = [board]
+  let currentBoard = []
+  let count = 0
+  while (count < 3) {
+    currentBoard = stack.pop()
+    for (const value of possibleValues) {
+      stack.push(generateNewBoard(currentBoard, value))
+    }
+    count ++
+  }
+  
+  console.log(isValid(board, 10, 6))
+}
+
+const testBoard = [
+  1, 16, null, null,
+  2, null, 19, null,
+  3, null, null, 27,
+  4, 2, null, 6,
+]
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div id={styles.sudokuSolver}>
       <div id={styles.title}>Sudoku Solver</div>
@@ -88,6 +183,7 @@ const sudokuSolver = () => {
           <div id={styles.functionBtns}>
             <PrimaryButton 
               name="Solve"
+              handleClick={() => solveBoard(testBoard)}
             />
           </div>
         </div>
