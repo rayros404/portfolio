@@ -70,26 +70,31 @@ const sudokuSolver = () => {
 
 
 const isInRow = (board, position, value) => {
-  const row = Math.floor(position / 4)
-  const rowValues = board.slice(row * 4, (row + 1) *4)
+  const row = Math.floor(position / 9)
+  const rowValues = board.slice(row * 9, (row + 1) * 9)
   return rowValues.includes(value)
 }
 
 const isInCol = (board, position, value) => {
-  const possibleCols = [0,1,2,3]
-  const col = position % 4
+  const possibleCols = [0,1,2,3,4,5,6,7,8]
+  const col = position % 9
   const colValues = possibleCols.map(val => (
-    board[col + 4*val]
+    board[col + 9*val]
   ))
   return colValues.includes(value)
 }
 
 const isInQuadrant = (board, position, value) => {
   const possibleQuadrants = {
-    0: [0,1,4,5],
-    1: [2,3,6,7],
-    2: [8,9,12,13],
-    3: [10,11,14,15],
+    0: [0,1,2,9,10,11,18,19,20],
+    1: [3,4,5,12,13,14,21,22,23],
+    2: [6,7,8,15,16,17,24,25,26],
+    3: [27,28,29,36,37,38,45,46,47],
+    4: [30,31,32,39,40,41,48,49,50],
+    5: [33,34,35,42,43,44,51,52,53],
+    6: [54,55,56,63,64,65,72,73,74],
+    7: [57,58,59,66,67,68,75,76,77],
+    8: [60,61,62,69,70,71,78,79,80],
   }
   let quadrantValues= null
   for (const quad in possibleQuadrants) {
@@ -111,7 +116,7 @@ const isValid = (board, position, value) => {
     )
 }
 
-const generateNewBoard = (board, value) => {
+const findNextSquare = (board) => {
   let nextSquare = null
   for (let i = 0; i < board.length; i++) {
     if (!board[i]) {
@@ -119,33 +124,32 @@ const generateNewBoard = (board, value) => {
       break
     }
   }
+  return nextSquare
+}
+
+const generateNewBoard = (board, position, value) => {
   let newBoard = [...board]
-  newBoard[nextSquare] = value
+  newBoard[position] = value
   return newBoard
 }
 
 const solveBoard = (board) => {
-  const possibleValues = [1,2,3,4]
-  let stack = [board]
-  let currentBoard = []
-  let count = 0
-  while (count < 3) {
-    currentBoard = stack.pop()
-    for (const value of possibleValues) {
-      stack.push(generateNewBoard(currentBoard, value))
-    }
-    count ++
-  }
-  
-  console.log(isValid(board, 10, 6))
-}
+  const possibleValues = [1,2,3,4,5,6,7,8,9]
+  let stack = [[...board]]
+  let currentBoard = [undefined]
+  let nextSquare
 
-const testBoard = [
-  1, 16, null, null,
-  2, null, 19, null,
-  3, null, null, 27,
-  4, 2, null, 6,
-]
+  while (currentBoard.includes(undefined)) {
+    currentBoard = stack.pop()
+    nextSquare = findNextSquare(currentBoard)
+      for (const value of possibleValues) {
+        if (isValid(currentBoard, nextSquare, value)) 
+          stack.push(generateNewBoard(currentBoard, nextSquare, value))
+      }
+  }
+
+    setBoard(currentBoard)
+}
 
 
 
@@ -183,7 +187,7 @@ const testBoard = [
           <div id={styles.functionBtns}>
             <PrimaryButton 
               name="Solve"
-              handleClick={() => solveBoard(testBoard)}
+              handleClick={() => solveBoard(board)}
             />
           </div>
         </div>
