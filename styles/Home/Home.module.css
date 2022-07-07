@@ -17,8 +17,7 @@
 }
 .sectionContent {
   background-color: black;
-  padding: 2rem 0;
-  margin-top: 1rem;
+  padding: 1rem 0;
   border: solid 0.5px #f7d74e;
   border-radius: 0.5rem;
 }
@@ -54,11 +53,6 @@
   }
   .sectionSubtitle {
     font-size: 1.5rem;
-  }
-  .sectionContent {
-    background-color: black;
-    padding: 1.25rem 0;
-    margin-top: 0.5rem;
   }
   .sectionText {
     color: white;

@@ -2,34 +2,34 @@ import styles from "../../styles/Home/FeaturedProject.module.css"
 import Image from "next/image"
 import PrimaryButton from "./PrimaryButton"
 
-const FeaturedProject = () => {
+const FeaturedProject = (props) => {
   return (
     <div className={styles.featuredProject}>
       <div className={styles.title}>FEATURED:</div>
-      <div className={styles.name}>POKéDEX Tag & Search</div>
+      <div className={styles.name}>{props.name}</div>
       <div className={styles.top}>
         <div className={styles.text}>
           <span className={styles.subtitle}>About:</span>
-          Look up your favorite POKéMON! Add tags for easier search. Click on the POKéMON cards to see more details about them.
+          {props.about}
           <br/>
           <br/>
           <span className={styles.subtitle}>Features:</span>
-           Fetch API | Dynamic Routing | Progressive Rendering | Filter & Search
+           {props.features}
         </div>
         <div className={styles.screenshot}>
           <Image 
-            src="/ProjectScreenshots/pokedexScreenshot3.jpg"
+            src={props.imgSrc}
             layout="fill"
             objectFit="contain"
-            alt="internshipHomepage"
+            alt={props.imgAlt}
           />
         </div>
       </div>
       <div className={styles.bottom}>
-        <div className={`${styles.technologies} ${styles.text}`}>HTML | CSS | JavaScript | React | NextJS</div>
+        <div className={`${styles.technologies} ${styles.text}`}>{props.technologies}</div>
         <PrimaryButton 
-          name="POKéDEX"
-          href="/pokedex"
+          name={props.linkName}
+          href={props.linkRoute}
         />
       </div>
     </div>
