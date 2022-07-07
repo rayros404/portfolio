@@ -26,4 +26,5 @@ const Square = memo((props) => {
   )
 })
 
+Square.displayName = "Square"
 export default Square

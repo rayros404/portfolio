@@ -2,9 +2,9 @@ import styles from "../styles/Projects/SudokuSolver/SudokuSolver.module.css"
 import Square from "../components/SudokuSolver/Square"
 import PrimaryButton from "../components/Home/PrimaryButton"
 import NumberButton from "../components/SudokuSolver/NumberButton"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 
-const sudokuSolver = () => {
+const SudokuSolver = () => {
   const [board, setBoard] = useState([...Array(81)].fill(
     {
       isInvalid: false,
@@ -22,7 +22,7 @@ const sudokuSolver = () => {
   const invalidMessage = "Some squares are invalid! Fix them to solve!"
 
   // changes value of selected square
-  const changeSquareValue = (val) => {
+  const changeSquareValue = useCallback((val) => {
     if (parseInt(val) || val === "Backspace") {
       setBoard(prevBoard => prevBoard.map((square, idx) => {
         if (selectedSquare === idx) {
@@ -44,7 +44,7 @@ const sudokuSolver = () => {
       }))
       setNewValueFlag(true)
     }
-  }
+  }, [selectedSquare])
   
   // selects a square
   const handleSquareClick = (square) => {
@@ -93,14 +93,14 @@ const sudokuSolver = () => {
     return quadrantValues.includes(value)
   }
 
-  const isValid = (board, position, value) => {
+  const isValid = useCallback((board, position, value) => {
     if (value === undefined) return true
     return !(
       isInRow(board, position, value) || 
       isInCol(board, position, value) || 
       isInQuadrant(board, position, value)
       )
-  }
+  }, [])
 
   const findNextSquare = (board) => {
     let nextSquare = null
@@ -170,8 +170,6 @@ const sudokuSolver = () => {
       setUnsolvableFlag(true)
       return
     }
-    
-      
   }
   const resetBoard = () => {
     setBoard([...Array(81)].fill(
@@ -187,7 +185,6 @@ const sudokuSolver = () => {
 
   // looks for invalid indices
   useEffect(() => {
-    setUnsolvableFlag(false)
     const values = board.map(square => square.value)
     let invalidIndices = []
     for (let i = 0; i < 81; i++) {
@@ -210,7 +207,7 @@ const sudokuSolver = () => {
       setInvalidFlag(true)
     }
     else setInvalidFlag(false)
-  }, [newValueFlag])
+  }, [newValueFlag, board, isValid])
 
 
   // handles key presses when changing square value
@@ -220,7 +217,7 @@ const sudokuSolver = () => {
     }
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
-  },[selectedSquare])
+  },[selectedSquare, changeSquareValue])
 
   // sets selected square to null if clicked outside board and number buttons
   useEffect(() => {
@@ -234,6 +231,9 @@ const sudokuSolver = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [boardRef, numberBtnsRef, selectedSquare])
 
+  useEffect(() => {
+    setUnsolvableFlag(false)
+  }, [newValueFlag])
 
   return (
     <div id={styles.sudokuSolver}>
@@ -277,4 +277,4 @@ const sudokuSolver = () => {
   )
 }
 
-export default sudokuSolver
+export default SudokuSolver
