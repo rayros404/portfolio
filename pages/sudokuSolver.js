@@ -3,41 +3,63 @@ import Square from "../components/SudokuSolver/Square"
 import PrimaryButton from "../components/Home/PrimaryButton"
 import NumberButton from "../components/SudokuSolver/NumberButton"
 import { useEffect, useState, useRef } from "react"
-import next from "next"
 
 const sudokuSolver = () => {
-  const [board, setBoard] = useState([...Array(81)])
-  const [selectedSquare, setSelectedSquare] = useState()
-
-  useEffect(() => {
-    const handleKeyPress = (event) => {
-      let value = parseInt(event.key)
-      if (value) {
-        setBoard(prevBoard => prevBoard.map((square, idx) => {
-          if (selectedSquare === idx) {
-            return value
-          }
-          return square
-        }))
-      }
+  const [board, setBoard] = useState([...Array(81)].fill(
+    {
+      isInvalid: false,
+      isUserInputed: false,
+      value: undefined,
     }
-    window.addEventListener("keypress", handleKeyPress)
-    return () => window.removeEventListener("keypress", handleKeyPress)
+  ))
+  const [selectedSquare, setSelectedSquare] = useState()
+  const boardRef = useRef(null)
+  const numberBtnsRef = useRef(null)
+
+  const changeSquareValue = (val) => {
+    if (parseInt(val) || val === "Backspace") {
+      setBoard(prevBoard => prevBoard.map((square, idx) => {
+        if (selectedSquare === idx) {
+          return (
+            val === "Backspace" ? 
+            {
+              isInvalid: false,
+              isUserInputed: false,
+              value: null
+            } : 
+            {
+              ...square,
+              isUserInputed: true,
+              value: parseInt(val)
+            }
+          )
+        }
+        return square
+      }))
+    }
+  }
+  // changes value of selected square
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      changeSquareValue(event.key)
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
   },[selectedSquare])
 
-  const useOutsideClick = (ref) => {
-    useEffect(() => {
-      const handleClickOutside = (event) => {
-        if (ref.current && !ref.current.contains(event.target) && !numberBtnsRef.current.contains(event.target)) {
-          setSelectedSquare()
-        }
+  // sets selected square to null if clicked outside board and number buttons
+  useEffect(() => {
+    let target = boardRef.current
+    const handleClickOutside = (event) => {
+      if (target && !target.contains(event.target) && !numberBtnsRef.current.contains(event.target)) {
+        setSelectedSquare()
       }
-      document.addEventListener("mousedown", handleClickOutside)
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside)
-      }
-    }, [ref, selectedSquare, numberBtnsRef])
-  }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [boardRef, numberBtnsRef, selectedSquare])
+
+
   const handleSquareClick = (square) => {
     setSelectedSquare(square)
   }
@@ -45,29 +67,27 @@ const sudokuSolver = () => {
     <Square 
       key={idx}
       id={idx}
-      value={board[idx]}
+      isInvalid={square.isInvalid}
+      isUserInputed={square.isUserInputed}
+      value={square.value}
       selectedSquare={selectedSquare}
       handleSquareClick={() => handleSquareClick(idx)}
     />
   ))
-  const numberBtns = [1,2,3,4,5,6,7,8,9].map(number => (
+  const numberBtns = [1,2,3,4,5,6,7,8,9,"Backspace"].map(value => (
     <NumberButton 
-      key={number}
-      number={number}
-      selectedSquare={selectedSquare}
-      setBoard={setBoard}
+      key={value}
+      value={value}
+      changeSquareValue={() => changeSquareValue(value)}
     />
   ))
 
-  const boardRef = useRef(null)
-  const numberBtnsRef = useRef(null)
-  useOutsideClick(boardRef)
+
+  // useOutsideClick(boardRef)
 
 
-
+/*                 HELPER FUNCTIONS                          */
 /*`````````````````````````````````````````````````````````` */
-
-
 
 const isInRow = (board, position, value) => {
   const row = Math.floor(position / 9)
@@ -109,6 +129,7 @@ const isInQuadrant = (board, position, value) => {
 }
 
 const isValid = (board, position, value) => {
+  if (value === undefined) return true
   return !(
     isInRow(board, position, value) || 
     isInCol(board, position, value) || 
@@ -133,34 +154,49 @@ const generateNewBoard = (board, position, value) => {
   return newBoard
 }
 
+/*                END OF HELPER FUNCTIONS                    */
+/*`````````````````````````````````````````````````````````` */
+
+
 const solveBoard = (board) => {
+  console.log(board)
   const possibleValues = [1,2,3,4,5,6,7,8,9]
   let stack = [[...board]]
   let currentBoard = [undefined]
   let nextSquare
 
-  while (currentBoard.includes(undefined)) {
-    currentBoard = stack.pop()
-    nextSquare = findNextSquare(currentBoard)
-      for (const value of possibleValues) {
-        if (isValid(currentBoard, nextSquare, value)) 
-          stack.push(generateNewBoard(currentBoard, nextSquare, value))
+  try {
+    while (currentBoard.includes(undefined) && stack) {
+      currentBoard = stack.pop()
+      nextSquare = findNextSquare(currentBoard)
+        for (const value of possibleValues) {
+          if (isValid(currentBoard, nextSquare, value)) 
+            stack.push(generateNewBoard(currentBoard, nextSquare, value))
+        }
+    }
+    setBoard(prevBoard => prevBoard.map((square, idx) => (
+      {
+        ...square,
+        value: currentBoard[idx]
       }
+    )))
   }
-
-    setBoard(currentBoard)
+  catch {
+    console.log("unsolvable")
+    return
+  }
+  
+    
 }
-
-
-
-
-
-
-
-
-
-
-
+const resetBoard = () => {
+  setBoard([...Array(81)].fill(
+    {
+      isInvalid: false,
+      isUserInputed: false,
+      value: undefined,
+    })
+  )
+}
 
   return (
     <div id={styles.sudokuSolver}>
@@ -187,7 +223,11 @@ const solveBoard = (board) => {
           <div id={styles.functionBtns}>
             <PrimaryButton 
               name="Solve"
-              handleClick={() => solveBoard(board)}
+              handleClick={() => solveBoard(board.map(square => square.value))}
+            />
+            <PrimaryButton 
+              name="Reset"
+              handleClick={resetBoard}
             />
           </div>
         </div>

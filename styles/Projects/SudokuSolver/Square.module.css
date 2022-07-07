@@ -17,6 +17,11 @@
   background-color: #f7d74e;
 }
 
+.invalid {
+  color: "white";
+  background-color: "#ff4422"
+}
+
 @media screen and (max-width: 1000px) {
   .square {
     height: 40px;

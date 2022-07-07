@@ -22,16 +22,16 @@
 @media screen and (max-width: 768px) {
   .numberBtn {
     font-size: 1.25rem;
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
   }
 }
 
 @media screen and (max-width: 425px) {
   .numberBtn {
     font-size: 1rem;
-    height: 30px;
-    width: 30px;
+    height: 45px;
+    width: 45px;
   }
 }
 
