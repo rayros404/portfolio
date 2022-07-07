@@ -185,6 +185,7 @@ const SudokuSolver = () => {
 
   // looks for invalid indices
   useEffect(() => {
+    if (!newValueFlag) return
     const values = board.map(square => square.value)
     let invalidIndices = []
     for (let i = 0; i < 81; i++) {
@@ -234,6 +235,7 @@ const SudokuSolver = () => {
   useEffect(() => {
     setUnsolvableFlag(false)
   }, [newValueFlag])
+
 
   return (
     <div id={styles.sudokuSolver}>
