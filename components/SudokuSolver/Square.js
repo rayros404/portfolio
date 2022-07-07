@@ -1,7 +1,7 @@
-import { withRouter } from "next/router"
 import styles from "../../styles/Projects/SudokuSolver/Square.module.css"
+import { memo } from "react"
 
-const Square = (props) => {
+const Square = memo((props) => {
   let style = {}
   if (props.isUserInputed) {
     style.color = "white"
@@ -24,6 +24,6 @@ const Square = (props) => {
     </div>
 
   )
-}
+})
 
 export default Square
